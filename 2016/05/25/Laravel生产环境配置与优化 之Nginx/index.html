@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Laravel生产环境配置与优化 之 Nginx | Jessynt 的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="生产环境我们这边使用的 Ubuntu + Nginx + MySQL + PHP7，Nginx&amp;amp;PHP7使用编译安装
+
+以下安装默认在root 用户下执行
+
+
+Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get install libtoolapt-get install libpcre3 libpcre3-dev zlib1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel生产环境配置与优化 之 Nginx">
+<meta property="og:url" content="http://jessynt.github.io/2016/05/25/Laravel生产环境配置与优化 之Nginx/index.html">
+<meta property="og:site_name" content="Jessynt 的博客">
+<meta property="og:description" content="生产环境我们这边使用的 Ubuntu + Nginx + MySQL + PHP7，Nginx&amp;amp;PHP7使用编译安装
+
+以下安装默认在root 用户下执行
+
+
+Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get install libtoolapt-get install libpcre3 libpcre3-dev zlib1">
+<meta property="og:updated_time" content="2016-05-25T04:43:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Laravel生产环境配置与优化 之 Nginx">
+<meta name="twitter:description" content="生产环境我们这边使用的 Ubuntu + Nginx + MySQL + PHP7，Nginx&amp;amp;PHP7使用编译安装
+
+以下安装默认在root 用户下执行
+
+
+Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get install libtoolapt-get install libpcre3 libpcre3-dev zlib1">
+  
+    <link rel="alternative" href="/atom.xml" title="Jessynt 的博客" type="application/atom+xml">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/13481936?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Jessynt</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jessynt" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/原创/" style="font-size: 10px;">原创</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Jessynt</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars2.githubusercontent.com/u/13481936?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Jessynt</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jessynt" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Laravel生产环境配置与优化 之Nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/25/Laravel生产环境配置与优化 之Nginx/" class="article-date">
+  	<time datetime="2016-05-25T02:30:18.000Z" itemprop="datePublished">May 25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Laravel生产环境配置与优化 之 Nginx
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生产环境我们这边使用的 Ubuntu + Nginx + MySQL + PHP7，Nginx&amp;PHP7使用编译安装</p>
+<ul>
+<li>以下安装默认在root 用户下执行</li>
+</ul>
+<hr>
+<h1 id="Nginx的编译安装"><a href="#Nginx的编译安装" class="headerlink" title="Nginx的编译安装"></a>Nginx的编译安装</h1><h2 id="准备编译环境"><a href="#准备编译环境" class="headerlink" title="准备编译环境"></a>准备编译环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install build-essential</span><br><span class="line">apt-get install libtool</span><br><span class="line">apt-get install libpcre3 libpcre3-dev zlib1g-dev libssl-dev build-essential</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们这边使用 <a href="http://openresty.org/cn/" target="_blank" rel="external">openresty</a> 来部署生产环境<blockquote>
+<p>OpenResty 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="准备源码包"><a href="#准备源码包" class="headerlink" title="准备源码包"></a>准备源码包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://openresty.org/download/openresty-1.9.7.4.tar.gz</span><br><span class="line">tar -xzf openresty-1.9.7.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openresty-1.9.7.4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们这边使用的是最新的1.9.7.4版本</li>
+</ul>
+<h2 id="编译-openresty"><a href="#编译-openresty" class="headerlink" title="编译 openresty"></a>编译 openresty</h2><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx \</span><br><span class="line">--user=nginx \</span><br><span class="line">--group=nginx \</span><br><span class="line">--with-http_sub_module \</span><br><span class="line">--with-http_stub_status_module \</span><br><span class="line">--with-luajit</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>值得注意的是我们这里指定了 Nginx 运行用户为 nginx 用户组下的 nginx 用户</li>
+</ul>
+<h3 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>经过漫长的等待，不出意外 Nginx 现在应该是已经安装完成了的<br>可以执行以下代码测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我这边输出的是：nginx version: openresty/1.9.7.4</li>
+</ul>
+<h3 id="创建运行用户组"><a href="#创建运行用户组" class="headerlink" title="创建运行用户组"></a>创建运行用户组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser --system --no-create-home --shell /bin/<span class="literal">false</span> --group --disabled-login nginx</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这行代码将创建一个名为nginx的用户，他的用户组为nginx，同时禁用了登录功能</li>
+</ul>
+<h3 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://raw.githubusercontent.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx</span><br><span class="line">sudo chmod +x /etc/init.d/nginx</span><br></pre></td></tr></table></figure>
+<p>编辑脚本，替换以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NGINXPATH=<span class="variable">$&#123;NGINXPATH:-/usr/local/nginx&#125;</span>      <span class="comment"># root path where installed</span></span><br></pre></td></tr></table></figure></p>
+<p>替换为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NGINXPATH=<span class="variable">$&#123;NGINXPATH:-/usr/local/nginx/nginx&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service nginx status  <span class="comment"># 获取当前运行状态</span></span><br><span class="line">service nginx stop    <span class="comment"># 停止 Nginx 服务器</span></span><br><span class="line">service nginx start   <span class="comment"># 启动 Nginx 服务器</span></span><br><span class="line"></span><br><span class="line">update-rc.d <span class="_">-f</span> nginx defaults  <span class="comment"># 配置开机启动</span></span><br><span class="line"></span><br><span class="line">update-rc.d <span class="_">-f</span> nginx remove  <span class="comment"># 禁用开机启动</span></span><br></pre></td></tr></table></figure>
+<!--# PHP7 的编译安装
+
+PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)都在大规模部署PHP7，还有什么理由不升级到PHP7
+
+> 微博作为第一个大规模升级 PHP7的公司，当线上服务器都更新完那一刻CPU、内存、QPS 的震撼瞬间
+
+![image](http://ww2.sinaimg.cn/mw690/66b11c14jw1f29ku8t5z3j215q0kwjv7.jpg)
+
+# 准备编译环境
+
+* 待完善-->
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Laravel生产环境配置与优化 之Nginx" data-title="Laravel生产环境配置与优化 之 Nginx" data-url="http://jessynt.github.io/2016/05/25/Laravel生产环境配置与优化 之Nginx/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jessynt"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Jessynt
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72322134-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

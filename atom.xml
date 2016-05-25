@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jessynt 的博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://jessynt.github.io/"/>
+  <updated>2016-05-25T04:57:45.000Z</updated>
+  <id>http://jessynt.github.io/</id>
+  
+  <author>
+    <name>Jessynt</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Laravel生产环境配置之Nginx的编译安装</title>
+    <link href="http://jessynt.github.io/2016/05/25/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BNginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
+    <id>http://jessynt.github.io/2016/05/25/Laravel生产环境配置之Nginx的编译安装/</id>
+    <published>2016-05-25T02:30:18.000Z</published>
+    <updated>2016-05-25T04:57:45.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Nginx的编译安装&quot;&gt;&lt;a href=&quot;#Nginx的编译安装&quot; class=&quot;headerlink&quot; title=&quot;Nginx的编译安装&quot;&gt;&lt;/a&gt;Nginx的编译安装&lt;/h1&gt;&lt;h2 id=&quot;准备编译环境&quot;&gt;&lt;a href=&quot;#准备编译环境&quot; class=&quot;headerlink&quot; title=&quot;准备编译环境&quot;&gt;&lt;/a&gt;准备编译环境&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install build-essential&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get install libtool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get install libpcre3 libpcre3-dev zlib1g-dev libssl-dev build-essential&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;我们这边使用 &lt;a href=&quot;http://openresty.org/cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;openresty&lt;/a&gt; 来部署生产环境&lt;blockquote&gt;
+&lt;p&gt;OpenResty 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;准备源码包&quot;&gt;&lt;a href=&quot;#准备源码包&quot; class=&quot;headerlink&quot; title=&quot;准备源码包&quot;&gt;&lt;/a&gt;准备源码包&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://openresty.org/download/openresty-1.9.7.4.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -xzf openresty-1.9.7.4.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; openresty-1.9.7.4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;我们这边使用的是最新的1.9.7.4版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;编译-openresty&quot;&gt;&lt;a href=&quot;#编译-openresty&quot; class=&quot;headerlink&quot; title=&quot;编译 openresty&quot;&gt;&lt;/a&gt;编译 openresty&lt;/h2&gt;&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/nginx \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--user=nginx \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--group=nginx \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--with-http_sub_module \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--with-http_stub_status_module \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--with-luajit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;值得注意的是我们这里指定了 Nginx 运行用户为 nginx 用户组下的 nginx 用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Make&quot;&gt;&lt;a href=&quot;#Make&quot; class=&quot;headerlink&quot; title=&quot;Make&quot;&gt;&lt;/a&gt;Make&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;经过漫长的等待，不出意外 Nginx 现在应该是已经安装完成了的&lt;br&gt;可以执行以下代码测试&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/usr/local/nginx/nginx/sbin/nginx -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;我这边输出的是：nginx version: openresty/1.9.7.4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;创建运行用户组&quot;&gt;&lt;a href=&quot;#创建运行用户组&quot; class=&quot;headerlink&quot; title=&quot;创建运行用户组&quot;&gt;&lt;/a&gt;创建运行用户组&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;adduser --system --no-create-home --shell /bin/&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; --group --disabled-login nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;这行代码将创建一个名为nginx的用户，他的用户组为nginx，同时禁用了登录功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;启动脚本&quot;&gt;&lt;a href=&quot;#启动脚本&quot; class=&quot;headerlink&quot; title=&quot;启动脚本&quot;&gt;&lt;/a&gt;启动脚本&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo wget https://raw.githubusercontent.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo chmod +x /etc/init.d/nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;编辑脚本，替换以下内容&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NGINXPATH=&lt;span class=&quot;variable&quot;&gt;$&amp;#123;NGINXPATH:-/usr/local/nginx&amp;#125;&lt;/span&gt;      &lt;span class=&quot;comment&quot;&gt;# root path where installed&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;替换为&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NGINXPATH=&lt;span class=&quot;variable&quot;&gt;$&amp;#123;NGINXPATH:-/usr/local/nginx/nginx&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service nginx status  &lt;span class=&quot;comment&quot;&gt;# 获取当前运行状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service nginx stop    &lt;span class=&quot;comment&quot;&gt;# 停止 Nginx 服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service nginx start   &lt;span class=&quot;comment&quot;&gt;# 启动 Nginx 服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;update-rc.d &lt;span class=&quot;_&quot;&gt;-f&lt;/span&gt; nginx defaults  &lt;span class=&quot;comment&quot;&gt;# 配置开机启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;update-rc.d &lt;span class=&quot;_&quot;&gt;-f&lt;/span&gt; nginx remove  &lt;span class=&quot;comment&quot;&gt;# 禁用开机启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;!--# PHP7 的编译安装
+
+PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)都在大规模部署PHP7，还有什么理由不升级到PHP7
+
+&gt; 微博作为第一个大规模升级 PHP7的公司，当线上服务器都更新完那一刻CPU、内存、QPS 的震撼瞬间
+
+![image](http://ww2.sinaimg.cn/mw690/66b11c14jw1f29ku8t5z3j215q0kwjv7.jpg)
+
+# 准备编译环境
+
+* 待完善--&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Nginx的编译安装&quot;&gt;&lt;a href=&quot;#Nginx的编译安装&quot; class=&quot;headerlink&quot; title=&quot;Nginx的编译安装&quot;&gt;&lt;/a&gt;Nginx的编译安装&lt;/h
+    
+    </summary>
+    
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
+    
+      <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="Linux" scheme="http://jessynt.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>让 Git 使用 socks5代理</title>
+    <link href="http://jessynt.github.io/2016/05/24/%E8%AE%A9%20Git%20%E4%BD%BF%E7%94%A8%20socks5%E4%BB%A3%E7%90%86/"/>
+    <id>http://jessynt.github.io/2016/05/24/让 Git 使用 socks5代理/</id>
+    <published>2016-05-24T13:01:54.000Z</published>
+    <updated>2016-05-24T13:10:44.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;全局&quot;&gt;&lt;a href=&quot;#全局&quot; class=&quot;headerlink&quot; title=&quot;全局&quot;&gt;&lt;/a&gt;全局&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config --global http.proxy &lt;span class=&quot;string&quot;&gt;&#39;socks5://127.0.0.1:1080&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global https.proxy &lt;span class=&quot;string&quot;&gt;&#39;socks5://127.0.0.1:1080&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;当前项目&quot;&gt;&lt;a href=&quot;#当前项目&quot; class=&quot;headerlink&quot; title=&quot;当前项目&quot;&gt;&lt;/a&gt;当前项目&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config http.proxy &lt;span class=&quot;string&quot;&gt;&#39;socks5://127.0.0.1:1080&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config https.proxy &lt;span class=&quot;string&quot;&gt;&#39;socks5://127.0.0.1:1080&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;其实只是把&lt;code&gt;--global&lt;/code&gt;删掉了而已，凑字数23333&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;全局&quot;&gt;&lt;a href=&quot;#全局&quot; class=&quot;headerlink&quot; title=&quot;全局&quot;&gt;&lt;/a&gt;全局&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c
+    
+    </summary>
+    
+    
+      <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="Linux" scheme="http://jessynt.github.io/tags/Linux/"/>
+    
+      <category term="Git" scheme="http://jessynt.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Laravel如何优雅的区分移动设备</title>
+    <link href="http://jessynt.github.io/2016/05/24/Laravel%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%8C%BA%E5%88%86%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/"/>
+    <id>http://jessynt.github.io/2016/05/24/Laravel如何优雅的区分移动设备/</id>
+    <published>2016-05-24T11:20:28.000Z</published>
+    <updated>2016-05-24T13:32:15.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Motto: “Every business should have a mobile detection script to detect mobile readers.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在是移动设备大热的时代，为了更好的照顾到用户手机浏览的体验，减少不必要的加载，我们可以通过PHP的方式来减少用户的代码加载，提高用户浏览页面时的体验。&lt;/p&gt;
+&lt;p&gt;由于现在移动设备的种类繁多、而且浏览器五花八门，所以仅仅是通过UA来判断已经不能完全解决问题了。&lt;/p&gt;
+&lt;p&gt;你需要一套完整的解决方案来分辨用户所使用的设备。&lt;/p&gt;
+&lt;h1 id=&quot;如何解决&quot;&gt;&lt;a href=&quot;#如何解决&quot; class=&quot;headerlink&quot; title=&quot;如何解决&quot;&gt;&lt;/a&gt;如何解决&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/jenssegers/agent&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;agent&lt;/a&gt; 是一个基于&lt;a href=&quot;https://github.com/serbanghita/Mobile-Detect&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mobile-Detect&lt;/a&gt; 的 Package，通过  User-Agent 并结合HTTP头来识别移动设备&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;   使用Composer&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;composer require jenssegers/agent&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本配置（可选）&quot;&gt;&lt;a href=&quot;#基本配置（可选）&quot; class=&quot;headerlink&quot; title=&quot;基本配置（可选）&quot;&gt;&lt;/a&gt;基本配置（可选）&lt;/h3&gt;&lt;p&gt;添加以下代码到 &lt;code&gt;php app/config/app.php&lt;/code&gt; 的 providers 数组：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;Jenssegers\Agent\AgentServiceProvider&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加以下代码到 &lt;code&gt;php app/config/app.php&lt;/code&gt; 的 aliases 数组：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;Agent&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;Jenssegers\Agent\Facades\Agent&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot; title=&quot;基本用法&quot;&gt;&lt;/a&gt;基本用法&lt;/h3&gt;&lt;p&gt;创建一个agent实例：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Jenssegers&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Agent&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Agent&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$agent = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Agent();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;判断&quot;&gt;&lt;a href=&quot;#判断&quot; class=&quot;headerlink&quot; title=&quot;判断&quot;&gt;&lt;/a&gt;判断&lt;/h5&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;is(&lt;span class=&quot;string&quot;&gt;&#39;Windows&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;is(&lt;span class=&quot;string&quot;&gt;&#39;Firefox&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;is(&lt;span class=&quot;string&quot;&gt;&#39;iPhone&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;is(&lt;span class=&quot;string&quot;&gt;&#39;OS X&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;移动设备检测&quot;&gt;&lt;a href=&quot;#移动设备检测&quot; class=&quot;headerlink&quot; title=&quot;移动设备检测&quot;&gt;&lt;/a&gt;移动设备检测&lt;/h5&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;isMobile(); &lt;span class=&quot;comment&quot;&gt;//判断手机用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;isTablet(); &lt;span class=&quot;comment&quot;&gt;//判断平板用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;正则匹配&quot;&gt;&lt;a href=&quot;#正则匹配&quot; class=&quot;headerlink&quot; title=&quot;正则匹配&quot;&gt;&lt;/a&gt;正则匹配&lt;/h5&gt;&lt;p&gt;用正则表达式查找用户代理：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;match(&lt;span class=&quot;string&quot;&gt;&#39;regexp&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;附加功能&quot;&gt;&lt;a href=&quot;#附加功能&quot; class=&quot;headerlink&quot; title=&quot;附加功能&quot;&gt;&lt;/a&gt;附加功能&lt;/h5&gt;&lt;p&gt;获取浏览器支持的的语言:&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$languages = $agent-&amp;gt;languages();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// [&#39;zh-CN&#39;, &#39;en-us&#39;, &#39;en&#39;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;设备名称&quot;&gt;&lt;a href=&quot;#设备名称&quot; class=&quot;headerlink&quot; title=&quot;设备名称&quot;&gt;&lt;/a&gt;设备名称&lt;/h5&gt;&lt;p&gt;如果是移动设备的话，获取设备名称（iPhone、Nexus、、、）&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$device = $agent-&amp;gt;device();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;操作系统名称&quot;&gt;&lt;a href=&quot;#操作系统名称&quot; class=&quot;headerlink&quot; title=&quot;操作系统名称&quot;&gt;&lt;/a&gt;操作系统名称&lt;/h5&gt;&lt;p&gt;获取 操作系统名称. (Ubuntu, Windows, OS X, …)&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent = $agent-&amp;gt;platform();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;浏览器名称&quot;&gt;&lt;a href=&quot;#浏览器名称&quot; class=&quot;headerlink&quot; title=&quot;浏览器名称&quot;&gt;&lt;/a&gt;浏览器名称&lt;/h5&gt;&lt;p&gt;获取浏览器名称. (Chrome, IE, Safari, Firefox, …)&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$browser = $agent-&amp;gt;browser();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;Desktop-detection&quot;&gt;&lt;a href=&quot;#Desktop-detection&quot; class=&quot;headerlink&quot; title=&quot;Desktop detection&quot;&gt;&lt;/a&gt;Desktop detection&lt;/h5&gt;&lt;p&gt;Check if the user is using a desktop device.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;isDesktop();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;This checks if a user is not a mobile device, tablet or robot.&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&quot;手机检测&quot;&gt;&lt;a href=&quot;#手机检测&quot; class=&quot;headerlink&quot; title=&quot;手机检测&quot;&gt;&lt;/a&gt;手机检测&lt;/h5&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;isPhone();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;机器人检测&quot;&gt;&lt;a href=&quot;#机器人检测&quot; class=&quot;headerlink&quot; title=&quot;机器人检测&quot;&gt;&lt;/a&gt;机器人检测&lt;/h5&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$agent-&amp;gt;isRobot();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;机器人名字&quot;&gt;&lt;a href=&quot;#机器人名字&quot; class=&quot;headerlink&quot; title=&quot;机器人名字&quot;&gt;&lt;/a&gt;机器人名字&lt;/h5&gt;&lt;p&gt;获得机器人的名字。注：这目前只适用于主流的机器人 Google, Facebook, Twitter, Bing, Baidu etc …&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$robot = $agent-&amp;gt;robot();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;agent &lt;a href=&quot;https://github.com/jenssegers/agent/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jenssegers/agent/blob/master/README.md&lt;/a&gt;&lt;br&gt;Mobile-Detect &lt;a href=&quot;https://github.com/serbanghita/Mobile-Detect&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/serbanghita/Mobile-Detect&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Motto: “Every business should have a mobile detection script to detect mobile readers.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在是移动设备大热的时代，为了
+    
+    </summary>
+    
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Laravel介绍（草稿）</title>
+    <link href="http://jessynt.github.io/2016/05/24/Laravel%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://jessynt.github.io/2016/05/24/Laravel介绍/</id>
+    <published>2016-05-24T03:09:03.000Z</published>
+    <updated>2016-05-24T12:51:54.000Z</updated>
+    
+    <content type="html">&lt;h5 id=&quot;第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&quot;&gt;&lt;a href=&quot;#第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&quot; class=&quot;headerlink&quot; title=&quot;第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&quot;&gt;&lt;/a&gt;第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&lt;/h5&gt;&lt;h1 id=&quot;那么首先，What-is-Laravel&quot;&gt;&lt;a href=&quot;#那么首先，What-is-Laravel&quot; class=&quot;headerlink&quot; title=&quot;那么首先，What is Laravel?&quot;&gt;&lt;/a&gt;那么首先，What is Laravel?&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://laravel.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Laravel&lt;/a&gt; 是一个基于&lt;a href=&quot;https://opensource.org/licenses/MIT&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MIT许可证&lt;/a&gt;开源的PHP框架，在 2011 年六月的时候发行第一个版本，截止到目前 (2016年五月) 版本号已经来到 5.2&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;So…-Why-Choose-Laravel&quot;&gt;&lt;a href=&quot;#So…-Why-Choose-Laravel&quot; class=&quot;headerlink&quot; title=&quot;So… Why Choose Laravel?&quot;&gt;&lt;/a&gt;So… Why Choose Laravel?&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;模块化 &amp;amp; 可扩展性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Laravel 是模块化和可扩展的，基于 Composer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;优雅 快速 高效的路由系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它可以让用户通过在浏览器上输入路径的方式让应用程序的各部分相关联&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Route::get(&amp;apos;/&amp;apos;, function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &amp;apos;Hello World&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Finally-…&quot;&gt;&lt;a href=&quot;#Finally-…&quot; class=&quot;headerlink&quot; title=&quot;Finally ….&quot;&gt;&lt;/a&gt;Finally ….&lt;/h1&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&quot;&gt;&lt;a href=&quot;#第一篇博客也不知道写些什么好，索性就来说下下Laravel这货吧&quot; class=&quot;headerlink&quot; title=&quot;第一篇博客也不知道写些什么好，索性就来说下下Larave
+    
+    </summary>
+    
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="http://jessynt.github.io/2016/05/23/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <id>http://jessynt.github.io/2016/05/23/第一篇文章/</id>
+    <published>2016-05-23T00:44:13.000Z</published>
+    <updated>2016-05-23T00:55:50.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;挖个坑，以后慢慢填&quot;&gt;&lt;a href=&quot;#挖个坑，以后慢慢填&quot; class=&quot;headerlink&quot; title=&quot;挖个坑，以后慢慢填&quot;&gt;&lt;/a&gt;挖个坑，以后慢慢填&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Hello,World!&quot;&lt;/span&gt;;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;挖个坑，以后慢慢填&quot;&gt;&lt;a href=&quot;#挖个坑，以后慢慢填&quot; class=&quot;headerlink&quot; title=&quot;挖个坑，以后慢慢填&quot;&gt;&lt;/a&gt;挖个坑，以后慢慢填&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
