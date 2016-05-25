@@ -154,6 +154,73 @@
 
       <div class="body-wrap">
   
+    <article id="post-Laravel生产环境配置之PHP7的安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/26/Laravel生产环境配置之PHP7的安装/" class="article-date">
+  	<time datetime="2016-05-25T17:49:45.000Z" itemprop="datePublished">May 26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/26/Laravel生产环境配置之PHP7的安装/">Laravel生产环境配置之PHP7的安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>以下安装默认在root 用户下执行</li>
+</ul>
+<hr>
+<h1 id="PHP7的安装"><a href="#PHP7的安装" class="headerlink" title="PHP7的安装"></a>PHP7的安装</h1><h2 id="添加Personal-Package-Archives"><a href="#添加Personal-Package-Archives" class="headerlink" title="添加Personal Package Archives"></a>添加Personal Package Archives</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-software-properties software-properties-common</span><br><span class="line">add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#最后更新下软件包</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<h2 id="安装PHP7以及一些常用的扩展"><a href="#安装PHP7以及一些常用的扩展" class="headerlink" title="安装PHP7以及一些常用的扩展"></a>安装PHP7以及一些常用的扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install php7.0-fpm php7.0-mysql php7.0-common php7.0-curl php7.0-cli php7.0-mcrypt php7.0-mbstring php7.0-dom</span><br></pre></td></tr></table></figure>
+<h2 id="基本配置-编辑-etc-php-7-0-fpm-php-ini文件"><a href="#基本配置-编辑-etc-php-7-0-fpm-php-ini文件" class="headerlink" title="基本配置(编辑/etc/php/7.0/fpm/php.ini文件)"></a>基本配置(编辑<code>/etc/php/7.0/fpm/php.ini</code>文件)</h2><h4 id="找到cgi-fix-pathinfo，把注释符去掉，然后设置为0"><a href="#找到cgi-fix-pathinfo，把注释符去掉，然后设置为0" class="headerlink" title="找到cgi.fix_pathinfo，把注释符去掉，然后设置为0:"></a>找到<code>cgi.fix_pathinfo</code>，把注释符去掉，然后设置为0:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgi.fix_pathinfo=0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>防止pathinfo漏洞给网站或服务器带来安全隐患</li>
+</ul>
+<h4 id="启用加密扩展库-php-mcrypt"><a href="#启用加密扩展库-php-mcrypt" class="headerlink" title="启用加密扩展库 php-mcrypt"></a>启用加密扩展库 php-mcrypt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpenmod mcrypt</span><br></pre></td></tr></table></figure>
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm start <span class="comment">#启动php</span></span><br><span class="line">service php7.0-fpm stop  <span class="comment">#停止php</span></span><br><span class="line">service php7.0-fpm status <span class="comment">#查看运行状态</span></span><br><span class="line">service php7.0-fpm restart <span class="comment">#重启php</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Laravel生产环境配置之Nginx的编译安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

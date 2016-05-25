@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jessynt.github.io/"/>
-  <updated>2016-05-25T05:00:46.000Z</updated>
+  <updated>2016-05-25T18:12:55.000Z</updated>
   <id>http://jessynt.github.io/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Laravel生产环境配置之PHP7的安装</title>
+    <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BPHP7%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7的安装/</id>
+    <published>2016-05-25T17:49:45.000Z</published>
+    <updated>2016-05-25T18:12:55.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;PHP7的安装&quot;&gt;&lt;a href=&quot;#PHP7的安装&quot; class=&quot;headerlink&quot; title=&quot;PHP7的安装&quot;&gt;&lt;/a&gt;PHP7的安装&lt;/h1&gt;&lt;h2 id=&quot;添加Personal-Package-Archives&quot;&gt;&lt;a href=&quot;#添加Personal-Package-Archives&quot; class=&quot;headerlink&quot; title=&quot;添加Personal Package Archives&quot;&gt;&lt;/a&gt;添加Personal Package Archives&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install python-software-properties software-properties-common&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;add-apt-repository ppa:ondrej/php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#最后更新下软件包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;安装PHP7以及一些常用的扩展&quot;&gt;&lt;a href=&quot;#安装PHP7以及一些常用的扩展&quot; class=&quot;headerlink&quot; title=&quot;安装PHP7以及一些常用的扩展&quot;&gt;&lt;/a&gt;安装PHP7以及一些常用的扩展&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install php7.0-fpm php7.0-mysql php7.0-common php7.0-curl php7.0-cli php7.0-mcrypt php7.0-mbstring php7.0-dom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;基本配置-编辑-etc-php-7-0-fpm-php-ini文件&quot;&gt;&lt;a href=&quot;#基本配置-编辑-etc-php-7-0-fpm-php-ini文件&quot; class=&quot;headerlink&quot; title=&quot;基本配置(编辑/etc/php/7.0/fpm/php.ini文件)&quot;&gt;&lt;/a&gt;基本配置(编辑&lt;code&gt;/etc/php/7.0/fpm/php.ini&lt;/code&gt;文件)&lt;/h2&gt;&lt;h4 id=&quot;找到cgi-fix-pathinfo，把注释符去掉，然后设置为0&quot;&gt;&lt;a href=&quot;#找到cgi-fix-pathinfo，把注释符去掉，然后设置为0&quot; class=&quot;headerlink&quot; title=&quot;找到cgi.fix_pathinfo，把注释符去掉，然后设置为0:&quot;&gt;&lt;/a&gt;找到&lt;code&gt;cgi.fix_pathinfo&lt;/code&gt;，把注释符去掉，然后设置为0:&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cgi.fix_pathinfo=0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;防止pathinfo漏洞给网站或服务器带来安全隐患&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;启用加密扩展库-php-mcrypt&quot;&gt;&lt;a href=&quot;#启用加密扩展库-php-mcrypt&quot; class=&quot;headerlink&quot; title=&quot;启用加密扩展库 php-mcrypt&quot;&gt;&lt;/a&gt;启用加密扩展库 php-mcrypt&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;phpenmod mcrypt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;基本使用方法&quot;&gt;&lt;a href=&quot;#基本使用方法&quot; class=&quot;headerlink&quot; title=&quot;基本使用方法&quot;&gt;&lt;/a&gt;基本使用方法&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm start &lt;span class=&quot;comment&quot;&gt;#启动php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm stop  &lt;span class=&quot;comment&quot;&gt;#停止php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm status &lt;span class=&quot;comment&quot;&gt;#查看运行状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm restart &lt;span class=&quot;comment&quot;&gt;#重启php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;PHP7的安装&quot;&gt;&lt;a href=&quot;#PHP7的安装&quot; class=&quot;headerlink&quot; title=&quot;PHP7的安装&quot;&gt;&lt;/a&gt;PHP7的安装&lt;/h1&gt;&lt;h2 id=&quot;添加
+    
+    </summary>
+    
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
+    
+      <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="Linux" scheme="http://jessynt.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Laravel生产环境配置之Nginx的编译安装</title>
