@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jessynt.github.io/"/>
-  <updated>2016-05-25T04:58:47.000Z</updated>
+  <updated>2016-05-25T05:00:46.000Z</updated>
   <id>http://jessynt.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jessynt.github.io/2016/05/25/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BNginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
     <id>http://jessynt.github.io/2016/05/25/Laravel生产环境配置之Nginx的编译安装/</id>
     <published>2016-05-25T02:30:18.000Z</published>
-    <updated>2016-05-25T04:58:47.000Z</updated>
+    <updated>2016-05-25T05:00:46.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;这行代码将创建一个名为nginx的用户，他的用户组为nginx，同时禁用了登录功能&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;启动脚本&quot;&gt;&lt;a href=&quot;#启动脚本&quot; class=&quot;headerlink&quot; title=&quot;启动脚本&quot;&gt;&lt;/a&gt;启动脚本&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo wget https://raw.githubusercontent.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo chmod +x /etc/init.d/nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;编辑脚本，替换以下内容&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NGINXPATH=&lt;span class=&quot;variable&quot;&gt;$&amp;#123;NGINXPATH:-/usr/local/nginx&amp;#125;&lt;/span&gt;      &lt;span class=&quot;comment&quot;&gt;# root path where installed&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;编辑&lt;code&gt;/etc/init.d/nginx&lt;/code&gt;，替换以下内容&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NGINXPATH=&lt;span class=&quot;variable&quot;&gt;$&amp;#123;NGINXPATH:-/usr/local/nginx&amp;#125;&lt;/span&gt;      &lt;span class=&quot;comment&quot;&gt;# root path where installed&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;替换为&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NGINXPATH=&lt;span class=&quot;variable&quot;&gt;$&amp;#123;NGINXPATH:-/usr/local/nginx/nginx&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h4 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service nginx status  &lt;span class=&quot;comment&quot;&gt;# 获取当前运行状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service nginx stop    &lt;span class=&quot;comment&quot;&gt;# 停止 Nginx 服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service nginx start   &lt;span class=&quot;comment&quot;&gt;# 启动 Nginx 服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;update-rc.d &lt;span class=&quot;_&quot;&gt;-f&lt;/span&gt; nginx defaults  &lt;span class=&quot;comment&quot;&gt;# 配置开机启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;update-rc.d &lt;span class=&quot;_&quot;&gt;-f&lt;/span&gt; nginx remove  &lt;span class=&quot;comment&quot;&gt;# 禁用开机启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;!--# PHP7 的编译安装
