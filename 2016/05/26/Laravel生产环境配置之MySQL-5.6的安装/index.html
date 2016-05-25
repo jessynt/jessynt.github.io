@@ -4,30 +4,42 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Laravel生产环境配置之PHP7的安装 | Jessynt 的博客</title>
+  <title>Laravel生产环境配置之MySQL-5.6的安装 | Jessynt 的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="以下安装默认在root 用户下执行
 
+MySQL-5.6的安装安装MySQL1apt-get install mysql-server-5.6 mysql-client-5.6
 
-PHP7的安装添加Personal Package Archives1234apt-get install python-software-properties software-properties-commonadd-apt-repository ppa:ondrej/php#最后更新下软件包apt-get update
-安装PHP7以及一些常用的扩展">
+值得注意的是安装过程中会让你设置MySQL的root用户的密码
+
+安装完毕MySQL的安装非常简单，不出意外MySQL已经安装完毕了，让我们来测试一下
+1mysql -uroot -p
+输入刚才设置的密码，可以进入控制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Laravel生产环境配置之PHP7的安装">
-<meta property="og:url" content="http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7的安装/index.html">
+<meta property="og:title" content="Laravel生产环境配置之MySQL-5.6的安装">
+<meta property="og:url" content="http://jessynt.github.io/2016/05/26/Laravel生产环境配置之MySQL-5.6的安装/index.html">
 <meta property="og:site_name" content="Jessynt 的博客">
 <meta property="og:description" content="以下安装默认在root 用户下执行
 
+MySQL-5.6的安装安装MySQL1apt-get install mysql-server-5.6 mysql-client-5.6
 
-PHP7的安装添加Personal Package Archives1234apt-get install python-software-properties software-properties-commonadd-apt-repository ppa:ondrej/php#最后更新下软件包apt-get update
-安装PHP7以及一些常用的扩展">
-<meta property="og:updated_time" content="2016-05-25T18:12:55.000Z">
+值得注意的是安装过程中会让你设置MySQL的root用户的密码
+
+安装完毕MySQL的安装非常简单，不出意外MySQL已经安装完毕了，让我们来测试一下
+1mysql -uroot -p
+输入刚才设置的密码，可以进入控制">
+<meta property="og:updated_time" content="2016-05-25T18:23:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laravel生产环境配置之PHP7的安装">
+<meta name="twitter:title" content="Laravel生产环境配置之MySQL-5.6的安装">
 <meta name="twitter:description" content="以下安装默认在root 用户下执行
 
+MySQL-5.6的安装安装MySQL1apt-get install mysql-server-5.6 mysql-client-5.6
 
-PHP7的安装添加Personal Package Archives1234apt-get install python-software-properties software-properties-commonadd-apt-repository ppa:ondrej/php#最后更新下软件包apt-get update
-安装PHP7以及一些常用的扩展">
+值得注意的是安装过程中会让你设置MySQL的root用户的密码
+
+安装完毕MySQL的安装非常简单，不出意外MySQL已经安装完毕了，让我们来测试一下
+1mysql -uroot -p
+输入刚才设置的密码，可以进入控制">
   
     <link rel="alternative" href="/atom.xml" title="Jessynt 的博客" type="application/atom+xml">
   
@@ -165,11 +177,11 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Laravel生产环境配置之PHP7的安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Laravel生产环境配置之MySQL-5.6的安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/26/Laravel生产环境配置之PHP7的安装/" class="article-date">
-  	<time datetime="2016-05-25T17:49:45.000Z" itemprop="datePublished">May 26</time>
+      <a href="/2016/05/26/Laravel生产环境配置之MySQL-5.6的安装/" class="article-date">
+  	<time datetime="2016-05-25T18:15:03.000Z" itemprop="datePublished">May 26</time>
 </a>
     </div>
   
@@ -182,7 +194,7 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
         
   
     <h1 class="article-title" itemprop="name">
-      Laravel生产环境配置之PHP7的安装
+      Laravel生产环境配置之MySQL-5.6的安装
     </h1>
   
 
@@ -191,7 +203,7 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li></ul>
 	</div>
 
         
@@ -205,15 +217,14 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
         <ul>
 <li>以下安装默认在root 用户下执行</li>
 </ul>
-<hr>
-<h1 id="PHP7的安装"><a href="#PHP7的安装" class="headerlink" title="PHP7的安装"></a>PHP7的安装</h1><h2 id="添加Personal-Package-Archives"><a href="#添加Personal-Package-Archives" class="headerlink" title="添加Personal Package Archives"></a>添加Personal Package Archives</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-software-properties software-properties-common</span><br><span class="line">add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#最后更新下软件包</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-<h2 id="安装PHP7以及一些常用的扩展"><a href="#安装PHP7以及一些常用的扩展" class="headerlink" title="安装PHP7以及一些常用的扩展"></a>安装PHP7以及一些常用的扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install php7.0-fpm php7.0-mysql php7.0-common php7.0-curl php7.0-cli php7.0-mcrypt php7.0-mbstring php7.0-dom</span><br></pre></td></tr></table></figure>
-<h2 id="基本配置-编辑-etc-php-7-0-fpm-php-ini文件"><a href="#基本配置-编辑-etc-php-7-0-fpm-php-ini文件" class="headerlink" title="基本配置(编辑/etc/php/7.0/fpm/php.ini文件)"></a>基本配置(编辑<code>/etc/php/7.0/fpm/php.ini</code>文件)</h2><h4 id="找到cgi-fix-pathinfo，把注释符去掉，然后设置为0"><a href="#找到cgi-fix-pathinfo，把注释符去掉，然后设置为0" class="headerlink" title="找到cgi.fix_pathinfo，把注释符去掉，然后设置为0:"></a>找到<code>cgi.fix_pathinfo</code>，把注释符去掉，然后设置为0:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgi.fix_pathinfo=0</span><br></pre></td></tr></table></figure>
+<h1 id="MySQL-5-6的安装"><a href="#MySQL-5-6的安装" class="headerlink" title="MySQL-5.6的安装"></a>MySQL-5.6的安装</h1><h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-server-5.6 mysql-client-5.6</span><br></pre></td></tr></table></figure>
 <ul>
-<li>防止pathinfo漏洞给网站或服务器带来安全隐患</li>
+<li>值得注意的是安装过程中会让你设置MySQL的root用户的密码</li>
 </ul>
-<h4 id="启用加密扩展库-php-mcrypt"><a href="#启用加密扩展库-php-mcrypt" class="headerlink" title="启用加密扩展库 php-mcrypt"></a>启用加密扩展库 php-mcrypt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpenmod mcrypt</span><br></pre></td></tr></table></figure>
-<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm start <span class="comment">#启动php</span></span><br><span class="line">service php7.0-fpm stop  <span class="comment">#停止php</span></span><br><span class="line">service php7.0-fpm status <span class="comment">#查看运行状态</span></span><br><span class="line">service php7.0-fpm restart <span class="comment">#重启php</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装完毕"><a href="#安装完毕" class="headerlink" title="安装完毕"></a>安装完毕</h2><p>MySQL的安装非常简单，不出意外MySQL已经安装完毕了，让我们来测试一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<p>输入刚才设置的密码，可以进入控制台则代表已经正确安装</p>
+
       
     </div>
     
@@ -222,18 +233,9 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
     
 <nav id="article-nav">
   
-    <a href="/2016/05/26/Laravel生产环境配置之MySQL-5.6的安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Laravel生产环境配置之MySQL-5.6的安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/25/Laravel生产环境配置之Nginx的编译安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Laravel生产环境配置之Nginx的编译安装</div>
+    <a href="/2016/05/26/Laravel生产环境配置之PHP7的安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Laravel生产环境配置之PHP7的安装</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -249,7 +251,7 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Laravel生产环境配置之PHP7的安装" data-title="Laravel生产环境配置之PHP7的安装" data-url="http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7的安装/"></div>
+	<div class="ds-thread" data-thread-key="Laravel生产环境配置之MySQL-5.6的安装" data-title="Laravel生产环境配置之MySQL-5.6的安装" data-url="http://jessynt.github.io/2016/05/26/Laravel生产环境配置之MySQL-5.6的安装/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
