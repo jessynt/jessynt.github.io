@@ -20,7 +20,7 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
 
 PHP7的安装添加Personal Package Archives1234apt-get install python-software-properties software-properties-commonadd-apt-repository ppa:ondrej/php#最后更新下软件包apt-get update
 安装PHP7以">
-<meta property="og:updated_time" content="2016-05-25T18:39:17.000Z">
+<meta property="og:updated_time" content="2016-05-25T18:42:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel生产环境配置之PHP7 & Composer的安装">
 <meta name="twitter:description" content="以下使用的是Ubuntu这个发行版，用户为root
@@ -213,7 +213,7 @@ PHP7的安装添加Personal Package Archives1234apt-get install python-software-
 <li>防止pathinfo漏洞给网站或服务器带来安全隐患</li>
 </ul>
 <h4 id="启用加密扩展库-php-mcrypt"><a href="#启用加密扩展库-php-mcrypt" class="headerlink" title="启用加密扩展库 php-mcrypt"></a>启用加密扩展库 php-mcrypt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpenmod mcrypt</span><br></pre></td></tr></table></figure>
-<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm start <span class="comment">#启动php</span></span><br><span class="line">service php7.0-fpm stop  <span class="comment">#停止php</span></span><br><span class="line">service php7.0-fpm status <span class="comment">#查看运行状态</span></span><br><span class="line">service php7.0-fpm restart <span class="comment">#重启php</span></span><br></pre></td></tr></table></figure>
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm start <span class="comment"># 启动php</span></span><br><span class="line">service php7.0-fpm stop  <span class="comment"># 停止php</span></span><br><span class="line">service php7.0-fpm status <span class="comment"># 查看运行状态</span></span><br><span class="line">service php7.0-fpm restart <span class="comment"># 重启php</span></span><br><span class="line">update-rc.d <span class="_">-f</span> php7.0-fpm defaults <span class="comment"># 配置开机启动</span></span><br><span class="line">update-rc.d <span class="_">-f</span> php7.0-fpm remove <span class="comment"># 禁用开机启动</span></span><br></pre></td></tr></table></figure>
 <h1 id="Composer的安装"><a href="#Composer的安装" class="headerlink" title="Composer的安装"></a>Composer的安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="_">-s</span>S https://getcomposer.org/installer | php</span><br><span class="line">mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span><br></pre></td></tr></table></figure>
 <ul>
 <li>我们这边使用的是全局安装</li>
