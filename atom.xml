@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jessynt.github.io/"/>
-  <updated>2016-05-25T18:23:51.000Z</updated>
+  <updated>2016-05-25T18:39:38.000Z</updated>
   <id>http://jessynt.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BMySQL-5.6%E7%9A%84%E5%AE%89%E8%A3%85/"/>
     <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之MySQL-5.6的安装/</id>
     <published>2016-05-25T18:15:03.000Z</published>
-    <updated>2016-05-25T18:23:51.000Z</updated>
+    <updated>2016-05-25T18:39:38.000Z</updated>
     
     <content type="html">&lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;MySQL-5-6的安装&quot;&gt;&lt;a href=&quot;#MySQL-5-6的安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL-5.6的安装&quot;&gt;&lt;/a&gt;MySQL-5.6的安装&lt;/h1&gt;&lt;h2 id=&quot;安装MySQL&quot;&gt;&lt;a href=&quot;#安装MySQL&quot; class=&quot;headerlink&quot; title=&quot;安装MySQL&quot;&gt;&lt;/a&gt;安装MySQL&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install mysql-server-5.6 mysql-client-5.6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
@@ -37,9 +37,9 @@
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;MySQL-5-6的安装&quot;&gt;&lt;a href=&quot;#MySQL-5-6的安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL-5.6的安装&quot;&gt;&lt;/a&gt;MySQL-5.6的安装
+&lt;h1 id=&quot;MySQL-5-6的安装&quot;&gt;&lt;a href=&quot;#MySQL-5-6的安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL-5.6的安装&quot;&gt;&lt;/a&gt;MySQ
     
     </summary>
     
@@ -59,10 +59,10 @@
     <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BPHP7%20&%20Composer%E7%9A%84%E5%AE%89%E8%A3%85/"/>
     <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7 & Composer的安装/</id>
     <published>2016-05-25T17:49:45.000Z</published>
-    <updated>2016-05-25T18:36:14.000Z</updated>
+    <updated>2016-05-25T18:39:17.000Z</updated>
     
     <content type="html">&lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;PHP7的安装&quot;&gt;&lt;a href=&quot;#PHP7的安装&quot; class=&quot;headerlink&quot; title=&quot;PHP7的安装&quot;&gt;&lt;/a&gt;PHP7的安装&lt;/h1&gt;&lt;h2 id=&quot;添加Personal-Package-Archives&quot;&gt;&lt;a href=&quot;#添加Personal-Package-Archives&quot; class=&quot;headerlink&quot; title=&quot;添加Personal Package Archives&quot;&gt;&lt;/a&gt;添加Personal Package Archives&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install python-software-properties software-properties-common&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;add-apt-repository ppa:ondrej/php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#最后更新下软件包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -88,10 +88,10 @@
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;PHP7的安装&quot;&gt;&lt;a href=&quot;#PHP7的安装&quot; class=&quot;headerlink&quot; title=&quot;PHP7的安装&quot;&gt;&lt;/a&gt;PHP7的安装&lt;/h1&gt;&lt;h2 id=&quot;添加
+&lt;h1 id=&quot;PHP7的安装&quot;&gt;&lt;a href=&quot;#PHP7的安装&quot; class=&quot;headerlink&quot; title=&quot;PHP7的安装&quot;&gt;&lt;/a&gt;PHP7的安装&lt;/h1&gt;&lt;h
     
     </summary>
     
@@ -104,6 +104,8 @@
     
       <category term="Linux" scheme="http://jessynt.github.io/tags/Linux/"/>
     
+      <category term="Composer" scheme="http://jessynt.github.io/tags/Composer/"/>
+    
   </entry>
   
   <entry>
@@ -111,10 +113,10 @@
     <link href="http://jessynt.github.io/2016/05/25/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BNginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
     <id>http://jessynt.github.io/2016/05/25/Laravel生产环境配置之Nginx的编译安装/</id>
     <published>2016-05-25T02:30:18.000Z</published>
-    <updated>2016-05-25T05:00:46.000Z</updated>
+    <updated>2016-05-25T18:39:35.000Z</updated>
     
     <content type="html">&lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;Nginx的编译安装&quot;&gt;&lt;a href=&quot;#Nginx的编译安装&quot; class=&quot;headerlink&quot; title=&quot;Nginx的编译安装&quot;&gt;&lt;/a&gt;Nginx的编译安装&lt;/h1&gt;&lt;h2 id=&quot;准备编译环境&quot;&gt;&lt;a href=&quot;#准备编译环境&quot; class=&quot;headerlink&quot; title=&quot;准备编译环境&quot;&gt;&lt;/a&gt;准备编译环境&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install build-essential&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get install libtool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;apt-get install libpcre3 libpcre3-dev zlib1g-dev libssl-dev build-essential&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -161,10 +163,10 @@ PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)�
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
+&lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;Nginx的编译安装&quot;&gt;&lt;a href=&quot;#Nginx的编译安装&quot; class=&quot;headerlink&quot; title=&quot;Nginx的编译安装&quot;&gt;&lt;/a&gt;Nginx的编译安装&lt;/h
+&lt;h1 id=&quot;Nginx的编译安装&quot;&gt;&lt;a href=&quot;#Nginx的编译安装&quot; class=&quot;headerlink&quot; title=&quot;Nginx的编译安装&quot;&gt;&lt;/a&gt;Nginx
     
     </summary>
     
