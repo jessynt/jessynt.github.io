@@ -220,10 +220,10 @@
 
 
   
-    <article id="post-Laravel生产环境配置之PHP7的安装" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Laravel生产环境配置之PHP7 &amp; Composer的安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/26/Laravel生产环境配置之PHP7的安装/" class="article-date">
+      <a href="/2016/05/26/Laravel生产环境配置之PHP7 & Composer的安装/" class="article-date">
   	<time datetime="2016-05-25T17:49:45.000Z" itemprop="datePublished">May 26</time>
 </a>
     </div>
@@ -237,7 +237,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/26/Laravel生产环境配置之PHP7的安装/">Laravel生产环境配置之PHP7的安装</a>
+      <a class="article-title" href="/2016/05/26/Laravel生产环境配置之PHP7 & Composer的安装/">Laravel生产环境配置之PHP7 &amp; Composer的安装</a>
     </h1>
   
 
@@ -258,6 +258,17 @@
 </ul>
 <h4 id="启用加密扩展库-php-mcrypt"><a href="#启用加密扩展库-php-mcrypt" class="headerlink" title="启用加密扩展库 php-mcrypt"></a>启用加密扩展库 php-mcrypt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpenmod mcrypt</span><br></pre></td></tr></table></figure>
 <h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm start <span class="comment">#启动php</span></span><br><span class="line">service php7.0-fpm stop  <span class="comment">#停止php</span></span><br><span class="line">service php7.0-fpm status <span class="comment">#查看运行状态</span></span><br><span class="line">service php7.0-fpm restart <span class="comment">#重启php</span></span><br></pre></td></tr></table></figure>
+<h1 id="Composer的安装"><a href="#Composer的安装" class="headerlink" title="Composer的安装"></a>Composer的安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="_">-s</span>S https://getcomposer.org/installer | php</span><br><span class="line">mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们这边使用的是全局安装</li>
+</ul>
+<blockquote>
+<p>注意： 如果上诉命令因为权限执行失败， 请使用 sudo 再次尝试运行 mv 那行命令。</p>
+</blockquote>
+<h2 id="Composer-的速度优化"><a href="#Composer-的速度优化" class="headerlink" title="Composer 的速度优化"></a>Composer 的速度优化</h2><blockquote>
+<p>由于国内众所周知的原因，国内访问海外网站是非常非常的慢，好在<a href="http://www.phpcomposer.com/" target="_blank" rel="external">Composer 中文网</a> 为我们提供了一个国内的全量镜像，如果你的服务器在国内的话，强烈推荐使用这个镜像源<br>参考资料：<a href="http://pkg.phpcomposer.com/" target="_blank" rel="external">http://pkg.phpcomposer.com/</a></p>
+</blockquote>
+
       
     </div>
     

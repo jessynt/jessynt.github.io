@@ -55,11 +55,11 @@
   </entry>
   
   <entry>
-    <title>Laravel生产环境配置之PHP7的安装</title>
-    <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BPHP7%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-    <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7的安装/</id>
+    <title>Laravel生产环境配置之PHP7 &amp; Composer的安装</title>
+    <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BPHP7%20&%20Composer%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7 & Composer的安装/</id>
     <published>2016-05-25T17:49:45.000Z</published>
-    <updated>2016-05-25T18:12:55.000Z</updated>
+    <updated>2016-05-25T18:36:14.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;以下安装默认在root 用户下执行&lt;/li&gt;
@@ -72,7 +72,18 @@
 &lt;li&gt;防止pathinfo漏洞给网站或服务器带来安全隐患&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;启用加密扩展库-php-mcrypt&quot;&gt;&lt;a href=&quot;#启用加密扩展库-php-mcrypt&quot; class=&quot;headerlink&quot; title=&quot;启用加密扩展库 php-mcrypt&quot;&gt;&lt;/a&gt;启用加密扩展库 php-mcrypt&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;phpenmod mcrypt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;基本使用方法&quot;&gt;&lt;a href=&quot;#基本使用方法&quot; class=&quot;headerlink&quot; title=&quot;基本使用方法&quot;&gt;&lt;/a&gt;基本使用方法&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm start &lt;span class=&quot;comment&quot;&gt;#启动php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm stop  &lt;span class=&quot;comment&quot;&gt;#停止php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm status &lt;span class=&quot;comment&quot;&gt;#查看运行状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm restart &lt;span class=&quot;comment&quot;&gt;#重启php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+&lt;h2 id=&quot;基本使用方法&quot;&gt;&lt;a href=&quot;#基本使用方法&quot; class=&quot;headerlink&quot; title=&quot;基本使用方法&quot;&gt;&lt;/a&gt;基本使用方法&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm start &lt;span class=&quot;comment&quot;&gt;#启动php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm stop  &lt;span class=&quot;comment&quot;&gt;#停止php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm status &lt;span class=&quot;comment&quot;&gt;#查看运行状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service php7.0-fpm restart &lt;span class=&quot;comment&quot;&gt;#重启php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;Composer的安装&quot;&gt;&lt;a href=&quot;#Composer的安装&quot; class=&quot;headerlink&quot; title=&quot;Composer的安装&quot;&gt;&lt;/a&gt;Composer的安装&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl &lt;span class=&quot;_&quot;&gt;-s&lt;/span&gt;S https://getcomposer.org/installer | php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv composer.phar /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/composer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;我们这边使用的是全局安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意： 如果上诉命令因为权限执行失败， 请使用 sudo 再次尝试运行 mv 那行命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Composer-的速度优化&quot;&gt;&lt;a href=&quot;#Composer-的速度优化&quot; class=&quot;headerlink&quot; title=&quot;Composer 的速度优化&quot;&gt;&lt;/a&gt;Composer 的速度优化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;由于国内众所周知的原因，国内访问海外网站是非常非常的慢，好在&lt;a href=&quot;http://www.phpcomposer.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Composer 中文网&lt;/a&gt; 为我们提供了一个国内的全量镜像，如果你的服务器在国内的话，强烈推荐使用这个镜像源&lt;br&gt;参考资料：&lt;a href=&quot;http://pkg.phpcomposer.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pkg.phpcomposer.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
     
     <summary type="html">
     
