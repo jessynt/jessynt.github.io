@@ -59,7 +59,7 @@
     <link href="http://jessynt.github.io/2016/05/26/Laravel%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B9%8BPHP7%20&%20Composer%E7%9A%84%E5%AE%89%E8%A3%85/"/>
     <id>http://jessynt.github.io/2016/05/26/Laravel生产环境配置之PHP7 & Composer的安装/</id>
     <published>2016-05-25T17:49:45.000Z</published>
-    <updated>2016-05-25T18:42:46.000Z</updated>
+    <updated>2016-05-28T03:26:10.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;以下使用的是Ubuntu这个发行版，用户为root&lt;/li&gt;
@@ -96,9 +96,9 @@
     </summary>
     
     
-      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
-    
       <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
     
       <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
@@ -265,9 +265,9 @@ PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)�
     </summary>
     
     
-      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
-    
       <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
     
       <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
@@ -304,9 +304,9 @@ PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)�
     </summary>
     
     
-      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
-    
       <category term="PHP" scheme="http://jessynt.github.io/tags/PHP/"/>
+    
+      <category term="Laravel" scheme="http://jessynt.github.io/tags/Laravel/"/>
     
       <category term="原创" scheme="http://jessynt.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
