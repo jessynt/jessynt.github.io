@@ -22,7 +22,7 @@ Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get 
 Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get install libtoolapt-get install libpcre3 libpcre3-dev zlib1g-dev libssl-dev build-essential
 
 我们这边使用 openresty 来部署生">
-<meta property="og:updated_time" content="2016-05-25T18:39:35.000Z">
+<meta property="og:updated_time" content="2016-06-03T13:32:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel生产环境配置之Nginx的编译安装">
 <meta name="twitter:description" content="以下使用的是Ubuntu这个发行版，用户为root
@@ -238,17 +238,6 @@ Nginx的编译安装准备编译环境123apt-get install build-essentialapt-get 
 <p>编辑<code>/etc/init.d/nginx</code>，替换以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NGINXPATH=<span class="variable">$&#123;NGINXPATH:-/usr/local/nginx&#125;</span>      <span class="comment"># root path where installed</span></span><br></pre></td></tr></table></figure></p>
 <p>替换为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NGINXPATH=<span class="variable">$&#123;NGINXPATH:-/usr/local/nginx/nginx&#125;</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service nginx status  <span class="comment"># 获取当前运行状态</span></span><br><span class="line">service nginx stop    <span class="comment"># 停止 Nginx 服务器</span></span><br><span class="line">service nginx start   <span class="comment"># 启动 Nginx 服务器</span></span><br><span class="line"></span><br><span class="line">update-rc.d <span class="_">-f</span> nginx defaults  <span class="comment"># 配置开机启动</span></span><br><span class="line"></span><br><span class="line">update-rc.d <span class="_">-f</span> nginx remove  <span class="comment"># 禁用开机启动</span></span><br></pre></td></tr></table></figure>
-<!--# PHP7 的编译安装
-
-PHP7 在2015年12月正式发布，性能翻倍，连[微博](http://weibo.com)都在大规模部署PHP7，还有什么理由不升级到PHP7
-
-> 微博作为第一个大规模升级 PHP7的公司，当线上服务器都更新完那一刻CPU、内存、QPS 的震撼瞬间
-
-![image](http://ww2.sinaimg.cn/mw690/66b11c14jw1f29ku8t5z3j215q0kwjv7.jpg)
-
-# 准备编译环境
-
-* 待完善-->
       
     </div>
     
