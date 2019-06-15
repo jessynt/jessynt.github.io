@@ -20,14 +20,5 @@
       <description>2017 is definitely a year of growth, very very painful but survived it. I’m so excited for this new year so many possibilities so many changes. Wishing everyone a better year than the last.</description>
     </item>
     
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://jessynt.github.io/2016/12/14/markdown-syntax-guide/</link>
-      <pubDate>Wed, 14 Dec 2016 05:46:18 +0800</pubDate>
-      
-      <guid>https://jessynt.github.io/2016/12/14/markdown-syntax-guide/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>
