@@ -7,11 +7,7 @@
     
     <title>Markdown Syntax Guide - Jessynt&#39;s Blog</title>
     
-    <meta name="description" content="
-Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
-Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it&rsquo;s been marked up with tags or formatting instructions.
-Markdown&rsquo;s syntax is intended for one purpose: to be used as a format for writing for the web.
-">
+    <meta name="description" content="This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.">
     <meta name="author" content="">
     
     <link href="https://jessynt.github.io/css/github-gist.min.css" rel="stylesheet">
@@ -57,274 +53,185 @@ Markdown&rsquo;s syntax is intended for one purpose: to be used as a format for 
     <h1 class="post-title">Markdown Syntax Guide</h1>
     <div class="post-meta">2016.12.14</div>
   </header>
-  <div class="post-content"><blockquote>
-<p>Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
-Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it&rsquo;s been marked up with tags or formatting instructions.
-Markdown&rsquo;s syntax is intended for one purpose: to be used as a format for <em>writing</em> for the web.</p>
-</blockquote>
+  <div class="post-content"><p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
 
-<h2 id="notice">Notice</h2>
+<h2 id="headings">Headings</h2>
 
-<p>You can use  <code>CMD + 4</code> or <code>CMD + R</code> to preview the result.</p>
+<p>The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
 
-<h2 id="headers">Headers</h2>
+<h1 id="h1">H1</h1>
 
-<p><strong>Example:</strong></p>
+<h2 id="h2">H2</h2>
 
-<pre><code># This is an `&lt;h1&gt;` tag
-## This is an `&lt;h2&gt;` tag
-###### This is an `&lt;h6&gt;` tag
-</code></pre>
+<h3 id="h3">H3</h3>
 
-<p><strong>Result:</strong></p>
+<h4 id="h4">H4</h4>
 
-<h1 id="this-is-an-h1-tag">This is an <code>&lt;h1&gt;</code> tag</h1>
+<h5 id="h5">H5</h5>
 
-<h2 id="this-is-an-h2-tag">This is an <code>&lt;h2&gt;</code> tag</h2>
+<h6 id="h6">H6</h6>
 
-<h6 id="this-is-an-h6-tag">This is an <code>&lt;h6&gt;</code> tag</h6>
+<h2 id="paragraph">Paragraph</h2>
 
-<h2 id="emphasis">Emphasis</h2>
+<p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>
 
-<p><strong>Example:</strong></p>
-
-<pre><code>*This text will be italic*
-_This will also be italic_
-
-**This text will be bold**
-__This will also be bold__
-
-*You **can** combine them*
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>CMD + U</code>、<code>CMD + I</code>、<code>CMD + B</code>
-<strong>Result:</strong></p>
-
-<p><em>This text will be italic</em>
-<em>This will also be italic</em></p>
-
-<p><strong>This text will be bold</strong>
-<strong>This will also be bold</strong></p>
-
-<p>*You <strong>can</strong> combine them*</p>
-
-<h2 id="newlines">Newlines</h2>
-
-<p>End a line with two or more spaces + enter.
-Just typing enter to newline,please set：<code>Preferences</code> - <code>Themes</code> - <code>Translate newlines to &lt;br&gt; tags</code>  enable ( default is enable )</p>
-
-<h2 id="lists">Lists</h2>
-
-<h3 id="unordered">Unordered</h3>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>* Item 1 unordered list `* + SPACE`
-* Item 2
-* Item 2a unordered list `TAB + * + SPACE`
-* Item 2b
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>Option + U</code>
-<strong>Result:</strong></p>
-
-<ul>
-<li>Item 1 unordered list <code>* + SPACE</code></li>
-<li>Item 2</li>
-<li>Item 2a unordered list <code>TAB + * + SPACE</code></li>
-<li>Item 2b</li>
-</ul>
-
-<h3 id="ordered">Ordered</h3>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>1. Item 1 ordered list `Number + . + SPACE`
-2. Item 2 
-3. Item 3
-1. Item 3a ordered list `TAB + Number + . + SPACE`
-2. Item 3b
-</code></pre>
-
-<p><strong>Result:</strong></p>
-
-<ol>
-<li>Item 1 ordered list <code>Number + . + SPACE</code></li>
-<li>Item 2</li>
-<li>Item 3</li>
-<li>Item 3a ordered list <code>TAB + Number + . + SPACE</code></li>
-<li>Item 3b</li>
-</ol>
-
-<h3 id="task-lists">Task lists</h3>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>- [ ] task one not finish `- + SPACE + [ ]`
-- [x] task two finished `- + SPACE + [x]`
-</code></pre>
-
-<p><strong>Result:</strong></p>
-
-<ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> task one not finish <code>- + SPACE + [ ]</code></label></li>
-<li><label><input type="checkbox" checked disabled class="task-list-item"> task two finished <code>- + SPACE + [x]</code></label></li>
-</ul>
-
-<h2 id="images">Images</h2>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>![GitHub set up](https://help.github.com/assets/images/site/set-up-git.gif)
-Format: ![Alt Text](url)
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>Control + Shift + I</code>
-The Library&rsquo;s document support drag &amp; drop or <code>CMD + V</code> paste or <code>CMD + Option + I</code> to insert  the picture.
-<strong>Result:</strong></p>
-
-<p><img src="https://help.github.com/assets/images/site/set-up-git.gif" alt="GitHub set up" /></p>
-
-<p>In MWeb, you can use <code>-w + Number</code> to control image width, for example, set the image width 140px:</p>
-
-<p><img src="https://help.github.com/assets/images/site/set-up-git.gif" alt="GitHub set up-w140" /></p>
-
-<h2 id="links">Links</h2>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>email &lt;example@example.com&gt;
-[GitHub](http://github.com)
-autolink  &lt;http://www.github.com/&gt;
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>Control + Shift + L</code>
-The Library&rsquo;s document support drag &amp; drop or <code>CMD + Option + I</code> to insert attachment.
-<strong>Result:</strong></p>
-
-<p>An email <a href="mailto:example@example.com">example@example.com</a> link.
-<a href="http://github.com">GitHub</a>
-Automatic linking for URLs
-Any URL (like <a href="http://www.github.com/">http://www.github.com/</a>) will be automatically converted into a clickable link.</p>
+<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
 
 <h2 id="blockquotes">Blockquotes</h2>
 
-<p><strong>Example:</strong></p>
+<p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
 
-<pre><code>As Kanye West said:
-&gt; We're living the future so
-&gt; the present is our past.
-</code></pre>
+<h4 id="blockquote-without-attribution">Blockquote without attribution</h4>
 
-<p><strong>Shortcuts:</strong>  <code>CMD + Shift + B</code>
-<strong>Result:</strong></p>
+<blockquote>
+<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>
+</blockquote>
 
-<p>As Kanye West said:
-&gt; We&rsquo;re living the future so
-&gt; the present is our past.</p>
+<h4 id="blockquote-with-attribution">Blockquote with attribution</h4>
 
-<h2 id="inline-code">Inline code</h2>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>I think you should use an
-`&lt;addr&gt;` `code` element here instead.
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>CMD + K</code>
-<strong>Result:</strong></p>
-
-<p>I think you should use an
-<code>&lt;addr&gt;</code> <code>code</code> element here instead.</p>
-
-<h2 id="multi-line-code">Multi-line code</h2>
-
-<p><strong>Example:</strong></p>
-
-<pre><code>```js
-function fancyAlert(arg) {
-    if(arg) {
-        $.facebox({div:'#foo'})
-    }
-
-}
-```
-</code></pre>
-
-<p><strong>Shortcuts:</strong>  <code>CMD + Shift + K</code>
-<strong>Result:</strong></p>
-
-<pre><code class="language-js">function fancyAlert(arg) {
-    if(arg) {
-        $.facebox({div:'#foo'})
-    }
-
-}
-</code></pre>
+<blockquote>
+<p>Don&rsquo;t communicate by sharing memory, share memory by communicating.</p>
+— <cite>Rob Pike<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></cite></p>
+</blockquote>
 
 <h2 id="tables">Tables</h2>
 
-<p><strong>Example:</strong></p>
-
-<pre><code>First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-</code></pre>
-
-<p>You can create tables by assembling a list of words and dividing them with hyphens - (for the first row), and then separating each column with a pipe |:</p>
-
-<p><strong>Result:</strong></p>
+<p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.</p>
 
 <table>
 <thead>
 <tr>
-<th>First Header</th>
-<th>Second Header</th>
+<th>Name</th>
+<th>Age</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>Content from cell 1</td>
-<td>Content from cell 2</td>
+<td>Bob</td>
+<td>27</td>
 </tr>
 
 <tr>
-<td>Content in the first column</td>
-<td>Content in the second column</td>
+<td>Alice</td>
+<td>23</td>
 </tr>
 </tbody>
 </table>
 
-<h2 id="strikethrough">Strikethrough</h2>
+<h4 id="inline-markdown-within-tables">Inline Markdown within tables</h4>
 
-<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Inline&nbsp;&nbsp;&nbsp;</th>
+<th>Markdown&nbsp;&nbsp;&nbsp;</th>
+<th>In&nbsp;&nbsp;&nbsp;</th>
+<th>Table</th>
+</tr>
+</thead>
 
-<p>(like <del>this</del>)</p>
+<tbody>
+<tr>
+<td><em>italics</em></td>
+<td><strong>bold</strong></td>
+<td><del>strikethrough</del>&nbsp;&nbsp;&nbsp;</td>
+<td><code>code</code></td>
+</tr>
+</tbody>
+</table>
 
-<p><strong>Result:</strong></p>
+<h2 id="code-blocks">Code Blocks</h2>
 
-<p>Any word wrapped with two tildes (like <del>this</del>) will appear crossed out.</p>
+<h4 id="code-block-with-backticks">Code block with backticks</h4>
 
-<h2 id="horizontal-rules">Horizontal Rules</h2>
-
-<p>Following lines will produce a horizontal rule:</p>
-
-<pre><code>***
-
-*****
-
-- - -
+<pre><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p><strong>Result:</strong></p>
+<h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces</h4>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4 id="code-block-with-hugo-s-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+  &lt;<span style="color:#f92672">title</span>&gt;Example HTML5 Document&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;Test&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+
+<h2 id="list-types">List Types</h2>
+
+<h4 id="ordered-list">Ordered List</h4>
+
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+
+<h4 id="unordered-list">Unordered List</h4>
+
+<ul>
+<li>List item</li>
+<li>Another item</li>
+<li>And another item</li>
+</ul>
+
+<h4 id="nested-list">Nested list</h4>
+
+<ul>
+<li>Item</li>
+<li>First Sub-item</li>
+<li>Second Sub-item</li>
+</ul>
+
+<h2 id="other-elements-abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</h2>
+
+<p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
+
+<p>H<sub>2</sub>O</p>
+
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+
+<p>Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.</p>
+
+<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+<div class="footnotes">
 
 <hr />
 
-<hr />
-
-<hr /></div>
+<ol>
+<li id="fn:1">The above quote is excerpted from Rob Pike&rsquo;s <a href="https://www.youtube.com/watch?v=PAAkCSZUG1c">talk</a> during Gopherfest, November 18, 2015.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div></div>
   <footer class="post-footer">
     
   </footer>
