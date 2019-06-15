@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jessynt&#39;s Blog</title>
+    <link>https://jessynt.github.io/</link>
+    <description>Recent content on Jessynt&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jan 2018 01:13:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://jessynt.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Happy New Year</title>
+      <link>https://jessynt.github.io/2018/01/02/happy-new-year/</link>
+      <pubDate>Tue, 02 Jan 2018 01:13:18 +0800</pubDate>
+      
+      <guid>https://jessynt.github.io/2018/01/02/happy-new-year/</guid>
+      <description>2017 is definitely a year of growth, very very painful but survived it. I’m so excited for this new year so many possibilities so many changes. Wishing everyone a better year than the last.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://jessynt.github.io/2016/12/14/markdown-syntax-guide/</link>
+      <pubDate>Wed, 14 Dec 2016 05:46:18 +0800</pubDate>
+      
+      <guid>https://jessynt.github.io/2016/12/14/markdown-syntax-guide/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it&amp;rsquo;s been marked up with tags or formatting instructions.
+Markdown&amp;rsquo;s syntax is intended for one purpose: to be used as a format for &lt;em&gt;writing&lt;/em&gt; for the web.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://jessynt.github.io/about/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://jessynt.github.io/about/</guid>
+      <description>License Information All content on this site, unless otherwise noted, is licensed as follows:
+ All source code published on the site and blog as well as the site source code itself is covered by the MIT License. Other content, including blog posts, talks, and images, is released under the Creative Commons Attribution-ShareAlike 4.0 license  MIT License Copyright 2016-present Jessynt Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;quot;Software&amp;quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</description>
+    </item>
+    
+  </channel>
+</rss>

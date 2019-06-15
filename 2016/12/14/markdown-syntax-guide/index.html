@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Markdown Syntax Guide - Jessynt&#39;s Blog</title>
+    
+    <meta name="description" content="
+Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it&rsquo;s been marked up with tags or formatting instructions.
+Markdown&rsquo;s syntax is intended for one purpose: to be used as a format for writing for the web.
+">
+    <meta name="author" content="">
+    
+    <link href="https://jessynt.github.io/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://jessynt.github.io/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://jessynt.github.io/img/apple-touch-icon.png">
+    <link rel="icon" href="https://jessynt.github.io/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://jessynt.github.io/index.xml" title="Jessynt&#39;s Blog">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://jessynt.github.io">Jessynt&#39;s Blog</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about/">About</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Markdown Syntax Guide</h1>
+    <div class="post-meta">2016.12.14</div>
+  </header>
+  <div class="post-content"><blockquote>
+<p>Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it&rsquo;s been marked up with tags or formatting instructions.
+Markdown&rsquo;s syntax is intended for one purpose: to be used as a format for <em>writing</em> for the web.</p>
+</blockquote>
+
+<h2 id="notice">Notice</h2>
+
+<p>You can use  <code>CMD + 4</code> or <code>CMD + R</code> to preview the result.</p>
+
+<h2 id="headers">Headers</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code># This is an `&lt;h1&gt;` tag
+## This is an `&lt;h2&gt;` tag
+###### This is an `&lt;h6&gt;` tag
+</code></pre>
+
+<p><strong>Result:</strong></p>
+
+<h1 id="this-is-an-h1-tag">This is an <code>&lt;h1&gt;</code> tag</h1>
+
+<h2 id="this-is-an-h2-tag">This is an <code>&lt;h2&gt;</code> tag</h2>
+
+<h6 id="this-is-an-h6-tag">This is an <code>&lt;h6&gt;</code> tag</h6>
+
+<h2 id="emphasis">Emphasis</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+*You **can** combine them*
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>CMD + U</code>、<code>CMD + I</code>、<code>CMD + B</code>
+<strong>Result:</strong></p>
+
+<p><em>This text will be italic</em>
+<em>This will also be italic</em></p>
+
+<p><strong>This text will be bold</strong>
+<strong>This will also be bold</strong></p>
+
+<p>*You <strong>can</strong> combine them*</p>
+
+<h2 id="newlines">Newlines</h2>
+
+<p>End a line with two or more spaces + enter.
+Just typing enter to newline,please set：<code>Preferences</code> - <code>Themes</code> - <code>Translate newlines to &lt;br&gt; tags</code>  enable ( default is enable )</p>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="unordered">Unordered</h3>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>* Item 1 unordered list `* + SPACE`
+* Item 2
+* Item 2a unordered list `TAB + * + SPACE`
+* Item 2b
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>Option + U</code>
+<strong>Result:</strong></p>
+
+<ul>
+<li>Item 1 unordered list <code>* + SPACE</code></li>
+<li>Item 2</li>
+<li>Item 2a unordered list <code>TAB + * + SPACE</code></li>
+<li>Item 2b</li>
+</ul>
+
+<h3 id="ordered">Ordered</h3>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>1. Item 1 ordered list `Number + . + SPACE`
+2. Item 2 
+3. Item 3
+1. Item 3a ordered list `TAB + Number + . + SPACE`
+2. Item 3b
+</code></pre>
+
+<p><strong>Result:</strong></p>
+
+<ol>
+<li>Item 1 ordered list <code>Number + . + SPACE</code></li>
+<li>Item 2</li>
+<li>Item 3</li>
+<li>Item 3a ordered list <code>TAB + Number + . + SPACE</code></li>
+<li>Item 3b</li>
+</ol>
+
+<h3 id="task-lists">Task lists</h3>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>- [ ] task one not finish `- + SPACE + [ ]`
+- [x] task two finished `- + SPACE + [x]`
+</code></pre>
+
+<p><strong>Result:</strong></p>
+
+<ul class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> task one not finish <code>- + SPACE + [ ]</code></label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> task two finished <code>- + SPACE + [x]</code></label></li>
+</ul>
+
+<h2 id="images">Images</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>![GitHub set up](https://help.github.com/assets/images/site/set-up-git.gif)
+Format: ![Alt Text](url)
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>Control + Shift + I</code>
+The Library&rsquo;s document support drag &amp; drop or <code>CMD + V</code> paste or <code>CMD + Option + I</code> to insert  the picture.
+<strong>Result:</strong></p>
+
+<p><img src="https://help.github.com/assets/images/site/set-up-git.gif" alt="GitHub set up" /></p>
+
+<p>In MWeb, you can use <code>-w + Number</code> to control image width, for example, set the image width 140px:</p>
+
+<p><img src="https://help.github.com/assets/images/site/set-up-git.gif" alt="GitHub set up-w140" /></p>
+
+<h2 id="links">Links</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>email &lt;example@example.com&gt;
+[GitHub](http://github.com)
+autolink  &lt;http://www.github.com/&gt;
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>Control + Shift + L</code>
+The Library&rsquo;s document support drag &amp; drop or <code>CMD + Option + I</code> to insert attachment.
+<strong>Result:</strong></p>
+
+<p>An email <a href="mailto:example@example.com">example@example.com</a> link.
+<a href="http://github.com">GitHub</a>
+Automatic linking for URLs
+Any URL (like <a href="http://www.github.com/">http://www.github.com/</a>) will be automatically converted into a clickable link.</p>
+
+<h2 id="blockquotes">Blockquotes</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>As Kanye West said:
+&gt; We're living the future so
+&gt; the present is our past.
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>CMD + Shift + B</code>
+<strong>Result:</strong></p>
+
+<p>As Kanye West said:
+&gt; We&rsquo;re living the future so
+&gt; the present is our past.</p>
+
+<h2 id="inline-code">Inline code</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>I think you should use an
+`&lt;addr&gt;` `code` element here instead.
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>CMD + K</code>
+<strong>Result:</strong></p>
+
+<p>I think you should use an
+<code>&lt;addr&gt;</code> <code>code</code> element here instead.</p>
+
+<h2 id="multi-line-code">Multi-line code</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>```js
+function fancyAlert(arg) {
+    if(arg) {
+        $.facebox({div:'#foo'})
+    }
+
+}
+```
+</code></pre>
+
+<p><strong>Shortcuts:</strong>  <code>CMD + Shift + K</code>
+<strong>Result:</strong></p>
+
+<pre><code class="language-js">function fancyAlert(arg) {
+    if(arg) {
+        $.facebox({div:'#foo'})
+    }
+
+}
+</code></pre>
+
+<h2 id="tables">Tables</h2>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+</code></pre>
+
+<p>You can create tables by assembling a list of words and dividing them with hyphens - (for the first row), and then separating each column with a pipe |:</p>
+
+<p><strong>Result:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Content from cell 1</td>
+<td>Content from cell 2</td>
+</tr>
+
+<tr>
+<td>Content in the first column</td>
+<td>Content in the second column</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="strikethrough">Strikethrough</h2>
+
+<p><strong>Example:</strong></p>
+
+<p>(like <del>this</del>)</p>
+
+<p><strong>Result:</strong></p>
+
+<p>Any word wrapped with two tildes (like <del>this</del>) will appear crossed out.</p>
+
+<h2 id="horizontal-rules">Horizontal Rules</h2>
+
+<p>Following lines will produce a horizontal rule:</p>
+
+<pre><code>***
+
+*****
+
+- - -
+</code></pre>
+
+<p><strong>Result:</strong></p>
+
+<hr />
+
+<hr />
+
+<hr /></div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="https://jessynt.github.io">Jessynt&#39;s Blog</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://jessynt.github.io/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://jessynt.github.io/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+
