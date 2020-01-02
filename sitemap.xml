@@ -10,13 +10,11 @@
   <url>
     <loc>https://jessynt.github.io/</loc>
     <lastmod>2018-01-02T01:13:18+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jessynt.github.io/posts/</loc>
     <lastmod>2018-01-02T01:13:18+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -26,12 +24,10 @@
   
   <url>
     <loc>https://jessynt.github.io/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jessynt.github.io/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
